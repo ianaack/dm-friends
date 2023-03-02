@@ -1,0 +1,17 @@
+{
+  "name": "dm-friends-server",
+  "version": "1.0.0",
+  "description": "Server side package for DM Friends",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon",
+    "seed": "node config/seed.js"
+  },
+  "author": "Ian Ackerman",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}

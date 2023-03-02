@@ -1,0 +1,5 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS dm_friends_db;
+
+-- CREATE DATABASE
+CREATE DATABASE dm_friends_db;

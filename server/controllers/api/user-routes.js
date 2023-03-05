@@ -48,15 +48,10 @@ router.post("/", async (req, res) => {
 // UPDATE an existing user
 router.put("/:id", async (req, res) => {
 	try {
-		const [rowsUpdated, [updatedUser]] = await User.update(req.body, {
-			returning: true,
+		const updatedUser = await User.update(req.body, {
 			where: { id: req.params.id },
 		});
-		if (rowsUpdated === 0) {
-			res.status(404).json({ message: "User not found" });
-		} else {
-			res.json(updatedUser);
-		}
+		res.json(updatedUser);
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({ message: "Server Error" });
@@ -70,7 +65,7 @@ router.delete("/:id", async (req, res) => {
 		if (rowsDeleted === 0) {
 			res.status(404).json({ message: "User not found" });
 		} else {
-			res.status(204).send();
+			res.json({ message: "User Deleted" }).status(204);
 		}
 	} catch (err) {
 		console.error(err);
@@ -95,7 +90,7 @@ router.post("/login", async (req, res) => {
 		const validPassword = user.checkPassword(req.body.password);
 
 		if (!validPassword) {
-			res.status(400).json({ message: "No user account found!" });
+			res.status(400).json({ message: "Invalid Password!" });
 			return;
 		}
 
@@ -107,7 +102,7 @@ router.post("/login", async (req, res) => {
 			res.json({ user, message: "You are now logged in!" });
 		});
 	} catch (err) {
-		res.status(400).json({ message: "No user account found!" });
+		res.status(400).json({ message: "Overall Catch!" });
 	}
 });
 
@@ -115,7 +110,7 @@ router.post("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
 	if (req.session.loggedIn) {
 		req.session.destroy(() => {
-			res.status(204).end();
+			res.json({message: "You are now logged out!"}).status(204).end();
 		});
 	} else {
 		res.status(404).end();

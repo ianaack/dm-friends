@@ -22,7 +22,7 @@ router.get("/:id", withAuth, async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
 	const { name } = req.body;
 	const category = await Category.create({ name });
-	res.json(category);
+	res.send.status(200).json(category);
 });
 
 // UPDATE an existing category

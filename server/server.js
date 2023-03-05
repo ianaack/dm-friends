@@ -42,7 +42,7 @@ app.get("*", (req, res) => {
 sequelize
 	.sync({ force: false })
 	.then(() => {
-		app.listen(PORT, () => console.log("Database now listening"));
+		app.listen(PORT, () => console.log(`Database now listening on ${PORT}`));
 	})
 	.catch((error) => {
 		console.error("Error syncing database:", error);

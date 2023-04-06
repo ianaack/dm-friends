@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
 		res.json(users);
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ message: "Server Error" });
+		res.json({ message: "Server Error" }).status(500);
 	}
 });
 
@@ -19,11 +19,11 @@ router.get("/:id", async (req, res) => {
 		if (user) {
 			res.json(user);
 		} else {
-			res.status(404).json({ message: "User not found" });
+			res.json({ message: "User not found" }).status(404);
 		}
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ message: "Server Error" });
+		res.json({ message: "Server Error" }).status(500);
 	}
 });
 
@@ -41,7 +41,7 @@ router.post("/", async (req, res) => {
 		});
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ message: "Server Error" });
+		res.json({ message: "Server Error" }).status(500);
 	}
 });
 
@@ -54,7 +54,7 @@ router.put("/:id", async (req, res) => {
 		res.json(updatedUser);
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ message: "Server Error" });
+		res.json({ message: "Server Error" }).status(500);
 	}
 });
 
@@ -63,13 +63,13 @@ router.delete("/:id", async (req, res) => {
 	try {
 		const rowsDeleted = await User.destroy({ where: { id: req.params.id } });
 		if (rowsDeleted === 0) {
-			res.status(404).json({ message: "User not found" });
+			res.json({ message: "User not found" }).status(404);
 		} else {
 			res.json({ message: "User Deleted" }).status(204);
 		}
 	} catch (err) {
 		console.error(err);
-		res.status(500).json({ message: "Server Error" });
+		res.json({ message: "Server Error" }).status(500);
 	}
 });
 
@@ -83,14 +83,14 @@ router.post("/login", async (req, res) => {
 		});
 
 		if (!user) {
-			res.status(400).json({ message: "No user account found!" });
+			res.json({ message: "No user account found!" }).status(400);
 			return;
 		}
 
 		const validPassword = user.checkPassword(req.body.password);
 
 		if (!validPassword) {
-			res.status(400).json({ message: "Invalid Password!" });
+			res.json({ message: "Invalid Password!" }).status(400);
 			return;
 		}
 

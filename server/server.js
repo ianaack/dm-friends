@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const routes = require("./controllers");
+const errorHandler = require("./utils/helpers");
 
 const app = express();
 const PORT = process.env.PORT || 8008;
@@ -29,6 +30,7 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
+app.use(errorHandler);
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "../client/build")));

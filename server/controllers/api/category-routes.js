@@ -13,7 +13,7 @@ router.get("/:id", withAuth, async (req, res) => {
 	const { id } = req.params;
 	const category = await Category.findByPk(id);
 	if (!category) {
-		return res.status(404).json({ message: "Category not found" });
+		return res.json({ message: "Category not found" }).status(404);
 	}
 	res.json(category);
 });
@@ -22,7 +22,7 @@ router.get("/:id", withAuth, async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
 	const { name } = req.body;
 	const category = await Category.create({ name });
-	res.send.status(200).json(category);
+	res.json(category).status(200);
 });
 
 // UPDATE an existing category
@@ -31,7 +31,7 @@ router.put("/:id", withAuth, async (req, res) => {
 	const { name } = req.body;
 	const category = await Category.findByPk(id);
 	if (!category) {
-		return res.status(404).json({ message: "Category not found" });
+		return res.json({ message: "Category not found" }).status(404);
 	}
 	category.name = name;
 	await category.save();
@@ -43,7 +43,7 @@ router.delete("/:id", withAuth, async (req, res) => {
 	const { id } = req.params;
 	const category = await Category.findByPk(id);
 	if (!category) {
-		return res.status(404).json({ message: "Category not found" });
+		return res.json({ message: "Category not found" }).status(404);
 	}
 	await category.destroy();
 	res.json({ message: "Category deleted successfully" });

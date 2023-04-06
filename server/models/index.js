@@ -9,14 +9,18 @@ const PostTag = require("./PostTag");
 const Tag = require("./Tag");
 const User = require("./User");
 
-// Create Associations after building models
-User.hasMany(Post);
+// Model Associations
+User.hasMany(Post, {
+	foreignKey: "user_id",
+});
 
 Post.belongsTo(User, {
 	foreignKey: "user_id",
 });
 
-Post.hasMany(Comment);
+Post.hasMany(Comment, {
+	foreignKey: "post_id",
+});
 
 Comment.belongsTo(Post, {
 	foreignKey: "post_id",
@@ -42,7 +46,9 @@ Tag.belongsToMany(Post, {
 	foreignKey: "tag_id",
 });
 
-Category.hasMany(Post);
+Category.hasMany(Post, {
+	foreignKey: "category_id",
+});
 
 Post.belongsTo(Category, {
 	foreignKey: "category_id",

@@ -16,16 +16,24 @@ Post.init(
 			allowNull: false,
 		},
 		content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    }
+			type: DataTypes.TEXT,
+			allowNull: false,
+		},
+		category_id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			references: {
+				model: "category",
+				key: "id",
+			},
+		},
 	},
 	{
 		sequelize,
 		timestamps: false,
 		freezeTableName: true,
 		underscored: true,
-		modelName: "Post",
+		modelName: "post",
 	}
 );
 

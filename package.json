@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/ianaack/dm-friends#readme",
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21"
   },
   "dependencies": {
     "dotenv": "^16.0.3"

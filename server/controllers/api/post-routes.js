@@ -30,10 +30,11 @@ router.get("/:id", async (req, res) => {
 
 // CREATE a post
 router.post("/", withAuth, async (req, res) => {
-	const body = req.body;
-
 	try {
-		const newPost = await Post.create({ ...body, user_id: req.session.user_id });
+		const newPost = await Post.create({
+			...req.body,
+			user_id: req.session.userId,
+		});
 		res.json(newPost);
 	} catch (err) {
 		console.error(err);
@@ -51,7 +52,7 @@ router.put("/:id", withAuth, async (req, res) => {
 		});
 
 		if (affectedRows > 0) {
-			res.status(200).end();
+			res.status(200).json(affectedRows).end();
 		} else {
 			res.status(404).end();
 		}
@@ -64,16 +65,19 @@ router.put("/:id", withAuth, async (req, res) => {
 // DELETE an existing post
 router.delete("/:id", withAuth, async (req, res) => {
 	try {
-		const [affectedRows] = Post.destroy({
+		const affectedRows = await Post.destroy({
 			where: {
 				id: req.params.id,
 			},
 		});
 
 		if (affectedRows > 0) {
-			res.status(200).end();
+			res
+				.status(200)
+				.json({ affectedRows, message: "Post deleted successfully" })
+				.end();
 		} else {
-			res.status(404).end();
+			res.status(404).json({ message: "Post not found" }).end();
 		}
 	} catch (err) {
 		console.error(err);

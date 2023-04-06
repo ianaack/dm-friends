@@ -11,10 +11,11 @@ const PORT = process.env.PORT || 8008;
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
+const oneDay = 1000 * 60 * 60 * 24;
 const sess = {
 	secret: process.env.SESS_SECRET,
 	cookie: {
-		maxAge: 300000,
+		maxAge: oneDay,
 		httpOnly: true,
 		secure: false,
 		sameSite: "strict",

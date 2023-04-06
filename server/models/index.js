@@ -1,4 +1,5 @@
 // import models
+const { and } = require("sequelize");
 const Category = require("./Category");
 const Comment = require("./Comment");
 const Like = require("./Like");
@@ -21,6 +22,35 @@ Post.belongsTo(User, {
 	onDelete: "CASCADE",
 });
 
+// User - Like - Post
+User.belongsToMany(Post, {
+	through: Like,
+	foreignKey: "user_id",
+});
+
+Post.belongsToMany(User, {
+	through: Like,
+	foreignKey: "post_id",
+});
+
+// User - Message
+// User.hasMany(Message, {
+// 	foreignKey: "user_id",
+// 	as: "sender",
+// 	onDelete: "CASCADE",
+// });
+
+// User.hasMany(Message, {
+// 	foreignKey: "user_id",
+// 	as: "recipient",
+// 	onDelete: "CASCADE",
+// });
+
+// Message.belongsTo(User, {
+// 	foreignKey: "user_id",
+// 	onDelete: "CASCADE",
+// });
+
 // Post - Comment
 Post.hasMany(Comment, {
 	foreignKey: "post_id",
@@ -35,17 +65,6 @@ Comment.belongsTo(User, {
 Comment.belongsTo(Post, {
 	foreignKey: "post_id",
 	onDelete: "CASCADE",
-});
-
-// User - Like - Post
-User.belongsToMany(Post, {
-	through: Like,
-	foreignKey: "user_id",
-});
-
-Post.belongsToMany(User, {
-	through: Like,
-	foreignKey: "post_id",
 });
 
 // Post - PostTag - Tag

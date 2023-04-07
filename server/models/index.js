@@ -9,6 +9,7 @@ const Post = require("./Post");
 const PostTag = require("./PostTag");
 const Tag = require("./Tag");
 const User = require("./User");
+const Conversation = require("./Conversation");
 
 // Model Associations
 // User - Post
@@ -87,6 +88,15 @@ Post.belongsTo(Category, {
 	foreignKey: "category_id",
 });
 
+//Conversation - Message
+Conversation.hasMany(Message, {
+	foreignKey: "conversation_id"
+});
+
+Message.belongsTo(Conversation, {
+	foreignKey: "conversation_id"
+});
+
 module.exports = {
 	Category,
 	Comment,
@@ -97,4 +107,5 @@ module.exports = {
 	PostTag,
 	Tag,
 	User,
+	Conversation
 };

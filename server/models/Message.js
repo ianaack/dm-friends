@@ -22,12 +22,19 @@ Message.init(
 				key: "id",
 			},
 		},
-    recipient_id: {
+        recipient_id: {
 			type: DataTypes.INTEGER,
 			references: {
 				model: "user",
 				key: "id",
 			},
+		},
+		conversation_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: "conversation",
+				key: "id",
+			}
 		}
 	},
 	{

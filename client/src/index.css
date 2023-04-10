@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra&display=swap");
+
 html {
   height: 100%;
 }
@@ -6,6 +8,17 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: linear-gradient(#141e30, #243b55);
+}
+
+.login-title {
+  color: #03e9f4;
+  font-size: 30px;
+  font-family: "Alkatra", cursive;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .login-box {
@@ -80,7 +93,7 @@ body {
 }
 
 .login-box button:hover {
-  background: #03e9f4;
+  background: #03e8f4c0;
   color: #fff;
   border-radius: 5px;
 }

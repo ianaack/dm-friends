@@ -17,6 +17,7 @@ export default function Signup() {
           <input type="password" name="password" required />
           <label>Password</label>
           <span className="signup-span">
+            back to
             <a className="signup-link" href="/">
               Login
             </a>

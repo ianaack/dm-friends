@@ -2,10 +2,8 @@ import React from "react";
 
 export default function Login() {
   return (
-    <>
-      <div>
-        <h1 className="login-title">DM Friends</h1>
-      </div>
+   
+      
       <div className="login-box">
         <h2>Login</h2>
         <form>
@@ -26,6 +24,5 @@ export default function Login() {
           <button href="/">Submit</button>
         </form>
       </div>
-    </>
   );
 }

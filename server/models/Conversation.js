@@ -12,7 +12,7 @@ Conversation.init(
 			autoIncrement: true,
 		},
 		messages_id: {
-			type: DataTypes.JSON, //This will be a JSON object that stores an array with the message id's.
+			type: DataTypes.INTEGER, // JSON is only available in postgres, had to convert to an integer
 			references: {
 				model: "message",
 				key: "id",

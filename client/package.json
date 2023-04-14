@@ -1,7 +1,7 @@
 {
-	"name": "dm-friends",
-	"version": "0.1.0",
-	"private": true,
+	"name": "dm-friends-client",
+	"version": "1.0.0",
+  "description": "Client side package for DM Friends",
 	"proxy": "http://localhost:3001",
 	"dependencies": {
 		"@emotion/react": "^11.10.6",

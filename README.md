@@ -28,13 +28,14 @@ Node.js
 ## Contribution
 
 The team at DM Friends consists of:  
-[Ian Ackerman](https://ianackerman.com)
+[Ian Ackerman](https://ianackerman.com)  
+[Brian Crisp](https://github.com/bcrisp084)  
+[Michael Hodges](https://github.com/mjh1985codeman)  
 
 But there are many ways in which you can participate in this project, for example:
 
 - [Submit bugs and feature requests](https://github.com/ianaack/dm-friends/issues), and help us verify as they are checked in
 - Upvote [popular feature requests](https://github.com/ianaack/dm-friends/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-- [Find an issue to work on](https://github.com/ianaack/dm-friends/labels/help%20wanted)
 
 You can also leave feedback by the following means:
 
@@ -45,6 +46,7 @@ You can also leave feedback by the following means:
 Copyright (c) Ian Ackerman. All rights reserved.  
 
 Licensed under the MIT License.  
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

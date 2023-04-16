@@ -1,32 +1,32 @@
 {
-  "name": "dm-friends",
-  "version": "1.0.0",
-  "description": "A social media platform for Dungeons & Dragons players",
-  "main": "server/server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ianaack/dm-friends.git"
-  },
-  "keywords": [],
-  "author": "Ian Ackerman",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ianaack/dm-friends/issues"
-  },
-  "homepage": "https://github.com/ianaack/dm-friends#readme",
-  "devDependencies": {
-    "concurrently": "^7.6.0",
-    "nodemon": "^2.0.21"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.3"
-  }
+	"name": "dm-friends",
+	"version": "1.0.0",
+	"description": "A social media platform for Dungeons & Dragons players",
+	"main": "server/server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "concurrently \"node server/server.js\" \"cd client && npm start\"",
+		"develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+		"install": "cd server && npm i && cd ../client && npm i",
+		"seed": "cd server && npm run seed",
+		"build": "cd client && npm run build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ianaack/dm-friends.git"
+	},
+	"keywords": [],
+	"author": "Ian Ackerman",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ianaack/dm-friends/issues"
+	},
+	"homepage": "https://github.com/ianaack/dm-friends#readme",
+	"devDependencies": {
+		"concurrently": "^7.6.0",
+		"nodemon": "^2.0.21"
+	},
+	"dependencies": {
+		"dotenv": "^16.0.3"
+	}
 }

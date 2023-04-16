@@ -22,7 +22,7 @@ Message.init(
 				key: "id",
 			},
 		},
-        recipient_id: {
+		recipient_id: {
 			type: DataTypes.INTEGER,
 			references: {
 				model: "user",
@@ -34,8 +34,8 @@ Message.init(
 			references: {
 				model: "conversation",
 				key: "id",
-			}
-		}
+			},
+		},
 	},
 	{
 		sequelize,

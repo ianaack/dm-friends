@@ -1,5 +1,4 @@
 // import models
-const { and } = require("sequelize");
 const Category = require("./Category");
 const Comment = require("./Comment");
 const Like = require("./Like");
@@ -90,11 +89,11 @@ Post.belongsTo(Category, {
 
 //Conversation - Message
 Conversation.hasMany(Message, {
-	foreignKey: "conversation_id"
+	foreignKey: "conversation_id",
 });
 
 Message.belongsTo(Conversation, {
-	foreignKey: "conversation_id"
+	foreignKey: "conversation_id",
 });
 
 module.exports = {
@@ -107,5 +106,5 @@ module.exports = {
 	PostTag,
 	Tag,
 	User,
-	Conversation
+	Conversation,
 };

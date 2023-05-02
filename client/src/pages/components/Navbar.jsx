@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import CastleIcon from "@mui/icons-material/Castle";
 
-const pages = ["", "", ""];
+const pages = ["Login", "Sign Up", ""];
 const settings = ["Dashboard", "Logout"];
 
 function NavBar() {
